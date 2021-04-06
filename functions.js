@@ -54,5 +54,68 @@ const binary = (arr, target) => {
     return 'Nothing Found';
 };
 
-console.log(binary(sortedArr, 44));
-console.log(binary(sortedArr, 43));
+// leet code #9
+var isPalindrome = function(x) {
+    
+
+    var integer = x.toString();
+    
+    function reverseString(int){
+        var splitString = int.split("");
+
+        var revArray = splitString.reverse();
+
+        var joinString = revArray.join("");
+
+        return joinString;
+    }
+
+    var revInt = reverseString(integer)
+
+    if(revInt == integer){
+        return true;
+    }else{
+        return false;
+    }
+};
+
+
+// leet code #34
+var searchRange = function(nums, target) {
+    var targetPos = [-1, -1];
+    
+    for(var i = 0; i < nums.length; i++){
+        if(nums[i] == target){
+            targetPos[0] = i;
+        }
+    }
+    
+    if (targetPos[0] == -1){
+            return targetPos;
+    }
+    
+    for(var j = nums.length - 1; j >= 0; j--){
+        if(nums[j] == target){
+            targetPos[1] = j;
+        }
+    }
+    
+    return targetPos.reverse();
+};
+
+// leet code #412
+var fizzBuzz = function(n) {
+    var count = [];
+    for(var i = 1; i <= n; i++){
+        if(i%3 == 0 && i%5 == 0){
+            count.push(`FizzBuzz`);
+        }else if(i%5 == 0){
+            count.push(`Buzz`);
+        }else if(i%3 == 0){
+            count.push(`Fizz`);
+        }else{
+            count.push(`${i}`);
+        }
+    };
+    return count;
+};
